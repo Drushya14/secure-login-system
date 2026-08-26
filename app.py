@@ -1,11 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import sqlite3
 import bcrypt
-
+import os
 app = Flask(__name__)
 
 # Secret key for secure sessions
-app.secret_key = "secure-login-project-key-2026"
+app.secret_key = os.environ.get("SECRET_KEY","development-key")
 
 
 # Create database and users table
